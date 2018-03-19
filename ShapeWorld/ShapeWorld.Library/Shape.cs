@@ -2,7 +2,7 @@
 
 namespace ShapeWorld.Library
 {
-    abstract public class Shape
+    abstract public class Shape: IShape
     {
         public int Edges { get; }
         abstract public double Area();

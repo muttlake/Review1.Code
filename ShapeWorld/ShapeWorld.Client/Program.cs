@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using ShapeWorld.Library;
 
 namespace ShapeWorld.Client
@@ -7,7 +9,8 @@ namespace ShapeWorld.Client
     {
         static void Main(string[] args)
         {
-            PlayWithShapes();
+            //PlayWithShapes();
+            PlayWithCollections();
         }
 
         static void PlayWithShapes()
@@ -31,6 +34,52 @@ namespace ShapeWorld.Client
 
 
             
+
+        }
+
+        static void PlayWithCollections()
+        {
+            Shape[] array = new Shape[10];
+            var a1 = new Shape[] {new Rectangle(), new Square(), new Rectangle()};
+            var i1 = a1[1];
+            a1[0] = i1;
+
+            //multi-dimensional arrays
+            Shape[,] a2 = new Shape[10,10];
+            var a3 = new Shape[,] {{new Square(), new Rectangle()},
+                                    {new Rectangle(), new Square()}};
+
+            var i2 = a3[0,1];
+            a2[2,3] = i2;
+
+            // Jagged arrays are arrays of arrays
+            Shape[][] a4 = new Shape[2][]; // the two secondary arrays can have different sizes
+            var a5 = new Shape[][] {new Rectangle[2], new Square[4]
+                                    {new Square() as Square, new Square(), new Square() as Square, new Square()}};
+
+            //Lists
+            List<Shape> l1 = new List<Shape>();
+            l1.Add(new Square());
+            var l2 = new List<Shape>() {new Square(), new Rectangle()};
+
+            //Dictionary
+            Dictionary<string, List<Shape>> d1 = new Dictionary<string, List<Shape>>();
+            d1["apple"] = new List<Shape>() {new Square(), new Rectangle()};
+
+            var d2 = new Dictionary<char, List<Shape>>(){
+                {'a', new List<Shape>()},
+                {'b', new List<Shape>()},
+                {'c', new List<Shape>(){new Square(), new Rectangle()}}
+            };
+
+            var i3 = d2['c'][0];
+            var i4 = d2.Keys.ElementAt(1); // Gets list of keys
+            Console.WriteLine(i4);
+
+
+
+
+
 
         }
     }
