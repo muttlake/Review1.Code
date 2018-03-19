@@ -18,6 +18,7 @@ namespace ShapeWorld.Library
             Width = w;
         }
 
+        //This is a comment
         public override double Area()
         {
             return Length * Width;
